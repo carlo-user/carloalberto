@@ -30,6 +30,17 @@
         ul {
             padding-left: 20px; /* Rientro per l'elenco */
         }
+        /* Stili per le sezioni immagine e testo */
+        .section {
+            margin-bottom: 30px; /* Distanza tra le sezioni */
+        }
+        .section img {
+            width: 100%;
+            height: auto;
+        }
+        .text {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -50,16 +61,30 @@
         </p>
         <button onclick="showImages()">Accetto</button>
     </div>
+
     <div id="images" class="hidden">
-        <img src="download (1).jpg" alt="Immagine 1">
-        <img src="download.jpg" alt="Immagine 2">
-        <!-- Aggiungi altre immagini se necessario -->
+        <div class="section">
+            <img src="download (1).jpg" alt="Immagine 1">
+            <div class="text">
+                <p>Questa è una descrizione dell'immagine 1. Aggiungi qui il testo che vuoi mostrare insieme all'immagine.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="download.jpg" alt="Immagine 2">
+            <div class="text">
+                <p>Questa è una descrizione dell'immagine 2. Aggiungi qui il testo che vuoi mostrare insieme all'immagine.</p>
+            </div>
+        </div>
+
+        <!-- Aggiungi altre sezioni se necessario -->
     </div>
+
     <script>
         function showImages() {
             // Nascondi il contenuto originale (testo e bottone)
             document.getElementById('content').classList.add('hidden');
-            // Mostra le immagini
+            // Mostra le immagini e le sezioni
             document.getElementById('images').classList.remove('hidden');
         }
     </script>

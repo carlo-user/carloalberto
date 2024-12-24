@@ -23,26 +23,31 @@
             max-width: 100%;
             margin-top: 10px;
         }
+        #content.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>L'importanza della creatività nel mondo moderno</h1>
-    <p>
-        Nel mondo moderno, la creatività è diventata una delle competenze più preziose e ricercate. Viviamo in un'epoca in cui le tecnologie avanzano rapidamente, e le soluzioni tradizionali spesso non sono più sufficienti per affrontare le sfide globali. La capacità di pensare fuori dagli schemi, di immaginare nuove possibilità e di innovare è ciò che distingue i leader dai semplici esecutori.
-    </p>
-    <p>
-        La creatività non si limita alle arti, come la pittura o la musica, ma abbraccia tutti gli ambiti della vita, dal design alla scienza, dalla comunicazione al business. Un imprenditore creativo, ad esempio, può scoprire modi unici per raggiungere i propri clienti, mentre uno scienziato creativo può proporre nuove ipotesi che portano a scoperte rivoluzionarie.
-    </p>
-    <p>
-        Nonostante ciò, molte persone credono erroneamente che la creatività sia un dono innato, riservato a pochi fortunati. In realtà, è una competenza che può essere sviluppata e affinata con pratica e dedizione. Attività come il brainstorming, il confronto con altre persone e l'esplorazione di nuovi orizzonti possono stimolare il pensiero creativo. Anche il fallimento può giocare un ruolo cruciale: spesso, i più grandi successi nascono da errori iniziali che portano a intuizioni inaspettate.
-    </p>
-    <p>
-        In un mondo sempre più interconnesso e competitivo, le aziende e gli individui che abbracciano la creatività hanno maggiori probabilità di prosperare. Non si tratta solo di trovare nuove soluzioni, ma anche di creare esperienze che ispirino gli altri. Quando le persone si lasciano guidare dalla loro immaginazione, scoprono non solo nuovi modi di vedere il mondo, ma anche nuovi modi di migliorarlo.
-    </p>
-    <p>
-        La creatività, quindi, non è solo un lusso, ma una necessità per chiunque desideri lasciare un segno nel proprio campo e contribuire positivamente alla società.
-    </p>
-    <button onclick="showImages()">Accetto</button>
+    <div id="content">
+        <h1>L'importanza della creatività nel mondo moderno</h1>
+        <p>
+            Nel mondo moderno, la creatività è diventata una delle competenze più preziose e ricercate. Viviamo in un'epoca in cui le tecnologie avanzano rapidamente, e le soluzioni tradizionali spesso non sono più sufficienti per affrontare le sfide globali. La capacità di pensare fuori dagli schemi, di immaginare nuove possibilità e di innovare è ciò che distingue i leader dai semplici esecutori.
+        </p>
+        <p>
+            La creatività non si limita alle arti, come la pittura o la musica, ma abbraccia tutti gli ambiti della vita, dal design alla scienza, dalla comunicazione al business. Un imprenditore creativo, ad esempio, può scoprire modi unici per raggiungere i propri clienti, mentre uno scienziato creativo può proporre nuove ipotesi che portano a scoperte rivoluzionarie.
+        </p>
+        <p>
+            Nonostante ciò, molte persone credono erroneamente che la creatività sia un dono innato, riservato a pochi fortunati. In realtà, è una competenza che può essere sviluppata e affinata con pratica e dedizione. Attività come il brainstorming, il confronto con altre persone e l'esplorazione di nuovi orizzonti possono stimolare il pensiero creativo. Anche il fallimento può giocare un ruolo cruciale: spesso, i più grandi successi nascono da errori iniziali che portano a intuizioni inaspettate.
+        </p>
+        <p>
+            In un mondo sempre più interconnesso e competitivo, le aziende e gli individui che abbracciano la creatività hanno maggiori probabilità di prosperare. Non si tratta solo di trovare nuove soluzioni, ma anche di creare esperienze che ispirino gli altri. Quando le persone si lasciano guidare dalla loro immaginazione, scoprono non solo nuovi modi di vedere il mondo, ma anche nuovi modi di migliorarlo.
+        </p>
+        <p>
+            La creatività, quindi, non è solo un lusso, ma una necessità per chiunque desideri lasciare un segno nel proprio campo e contribuire positivamente alla società.
+        </p>
+        <button onclick="showImages()">Accetto</button>
+    </div>
     <div id="images" class="hidden">
         <img src="download (1).jpg" alt="Immagine 1">
         <img src="download.jpg" alt="Immagine 2">
@@ -50,6 +55,7 @@
     </div>
     <script>
         function showImages() {
+            document.getElementById('content').classList.add('hidden');
             document.getElementById('images').classList.remove('hidden');
         }
     </script>

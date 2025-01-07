@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #d3d3d3; 
+    color: #333; 
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+button:hover {
+    background-color: #45a049; 
+}
+
+img {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.section {
+    margin-bottom: 30px; 
+}
+
+.section img {
+    width: 100%;
+    height: auto;
+}
+
+.description {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}

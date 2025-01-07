@@ -34,14 +34,25 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
+// Funzione per aggiornare il titolo dinamicamente
+function updateTitle() {
+    const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
+    const user = userData[userId];
+
+    if (user) {
+        const titleElement = document.querySelector("h1");
+        titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
+    } else {
+        alert("Utente non trovato. Verifica l'URL.");
+    }
+}
+
 // Funzione per mostrare le immagini dell'utente
 function showImages() {
     const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
     const user = userData[userId];
 
     if (user) {
-        // Modifica il contenuto della pagina
-        document.querySelector("#content h1").innerText = `DICHIARAZIONE DELLA PRIVACY - ${user.name}`;
         document.getElementById('content').classList.add('hidden');
 
         const imagesDiv = document.getElementById("images");
@@ -72,8 +83,5 @@ function showImages() {
 
 // Caricamento automatico dei dati all'apertura della pagina
 document.addEventListener("DOMContentLoaded", () => {
-    const userId = getQueryParam('id');
-    if (!userId) {
-        alert("Nessun utente specificato.");
-    }
+    updateTitle(); // Aggiorna il titolo dinamicamente
 });

@@ -4,11 +4,11 @@ const userData = {
         "name": "Carlo Alberto Lisa",
         "images": [
             {
-                "src": "download1.jpg",
+                "src": "download.jpg",
                 "description": "Questa è la descrizione dell'immagine 1."
             },
             {
-                "src": "download2.jpg",
+                "src": "download (1).jpg",
                 "description": "Questa è la descrizione dell'immagine 2."
             }
         ]

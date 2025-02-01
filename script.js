@@ -5,11 +5,11 @@ const userData = {
         "images": [
             {
                 "src": "asset/carlo/download.jpg",
-                "description": "Questa è la descrizione dell'immagine 1."
+                "description": "Questa è la descrizione dell'immagine 1 per Carlo."
             },
             {
                 "src": "download2.jpg",
-                "description": "Questa è la descrizione dell'immagine 2."
+                "description": "Questa è la descrizione dell'immagine 2 per Carlo."
             }
         ]
     },

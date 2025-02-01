@@ -1,4 +1,10 @@
-// Oggetto contenente i dati utente (può essere spostato su un server o file separato JSON)
+// Simuliamo un sistema di autenticazione
+const userAuth = {
+    isAuthenticated: true, // Qui andrebbe un vero controllo di login
+    userId: "user1" // Dovresti ottenere l'ID dell'utente autenticato
+};
+
+// Simuliamo un database di utenti
 const userData = {
     "user1": {
         "name": "Carlo Alberto Lisa",
@@ -17,7 +23,7 @@ const userData = {
         "name": "Maria Rossi",
         "images": [
             {
-                "src": "asset/maria/download.jpg",
+                "src": "image1.jpg",
                 "description": "Descrizione dell'immagine 1 per Maria."
             },
             {
@@ -28,28 +34,32 @@ const userData = {
     }
 };
 
-// Funzione per recuperare i parametri dall'URL
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
 // Funzione per aggiornare il titolo dinamicamente
 function updateTitle() {
-    const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
+    if (!userAuth.isAuthenticated) {
+        alert("Accesso negato. Effettua il login.");
+        return;
+    }
+
+    const userId = userAuth.userId; // Recupera l'ID dell'utente autenticato
     const user = userData[userId];
 
     if (user) {
         const titleElement = document.querySelector("h1");
         titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
     } else {
-        alert("Utente non trovato. Verifica l'URL.");
+        alert("Errore: utente non trovato.");
     }
 }
 
-// Funzione per mostrare le immagini dell'utente
+// Funzione per mostrare le immagini dell'utente autenticato
 function showImages() {
-    const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
+    if (!userAuth.isAuthenticated) {
+        alert("Accesso negato. Effettua il login.");
+        return;
+    }
+    
+    const userId = userAuth.userId;
     const user = userData[userId];
 
     if (user) {

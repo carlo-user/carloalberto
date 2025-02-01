@@ -1,12 +1,12 @@
-// Oggetto contenente i dati utente (può essere spostato su un server o file separato JSON)
+// Oggetto contenente i dati utente
 const userData = {
     "user1": {
         "name": "Carlo Alberto Lisa",
         "images": [
             {
                 "src": "asset/carlo/download.jpg",
-                "description": "Questa è la descrizione dell'immagine 1 Carlo."
-            },
+                "description": "Questa è la descrizione dell'immagine 1 per Carlo."
+            }
         ]
     },
     "user2": {
@@ -15,7 +15,7 @@ const userData = {
             {
                 "src": "asset/maria/download.jpg",
                 "description": "Descrizione dell'immagine 1 per Maria."
-            },
+            }
         ]
     }
 };
@@ -29,11 +29,14 @@ function getQueryParam(param) {
 // Funzione per aggiornare il titolo dinamicamente
 function updateTitle() {
     const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
+    console.log("User ID:", userId);  // Debugging
     const user = userData[userId];
 
     if (user) {
         const titleElement = document.querySelector("h1");
-       titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
+        if (titleElement) {
+            titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
+        }
     } else {
         alert("Utente non trovato. Verifica l'URL.");
     }
@@ -42,6 +45,7 @@ function updateTitle() {
 // Funzione per mostrare le immagini dell'utente
 function showImages() {
     const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
+    console.log("Mostrando immagini per:", userId);  // Debugging
     const user = userData[userId];
 
     if (user) {
@@ -73,7 +77,7 @@ function showImages() {
     }
 }
 
-// Caricamento automatico dei dati all'apertura della pagina
+// Assicurati che il codice venga eseguito dopo il caricamento del DOM
 document.addEventListener("DOMContentLoaded", () => {
-    updateTitle(); // Aggiorna il titolo dinamicamente
+    updateTitle();
 });

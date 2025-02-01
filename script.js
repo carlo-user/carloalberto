@@ -13,27 +13,34 @@ const userData = {
                 "src": "asset/carlo/download.jpg",
                 "description": "Questa è la descrizione dell'immagine 1."
             },
+            {
+                "src": "download (1).jpg",
+                "description": "Questa è la descrizione dell'immagine 2."
+            }
         ]
     },
     "user2": {
         "name": "Maria Rossi",
         "images": [
             {
-                "src": "asset/maria/download.jpg",
+                "src": "image1.jpg",
                 "description": "Descrizione dell'immagine 1 per Maria."
             },
+            {
+                "src": "image2.jpg",
+                "description": "Descrizione dell'immagine 2 per Maria."
+            }
         ]
     }
 };
 
 // Funzione per aggiornare il titolo dinamicamente
-function updateTitle() {
+function updateTitle(userId) {
     if (!userAuth.isAuthenticated) {
         alert("Accesso negato. Effettua il login.");
         return;
     }
 
-    const userId = userAuth.userId; // Recupera l'ID dell'utente autenticato
     const user = userData[userId];
 
     if (user) {
@@ -44,14 +51,13 @@ function updateTitle() {
     }
 }
 
-// Funzione per mostrare le immagini dell'utente autenticato
-function showImages() {
+// Funzione per mostrare le immagini dell'utente cercato
+function showImages(userId) {
     if (!userAuth.isAuthenticated) {
         alert("Accesso negato. Effettua il login.");
         return;
     }
     
-    const userId = userAuth.userId;
     const user = userData[userId];
 
     if (user) {
@@ -83,7 +89,26 @@ function showImages() {
     }
 }
 
+// Funzione per cercare un utente
+function searchUser() {
+    const searchInput = document.getElementById("searchBar").value.trim();
+    if (userData[searchInput]) {
+        updateTitle(searchInput);
+        showImages(searchInput);
+    } else {
+        alert("Utente non trovato.");
+    }
+}
+
 // Caricamento automatico dei dati all'apertura della pagina
 document.addEventListener("DOMContentLoaded", () => {
-    updateTitle(); // Aggiorna il titolo dinamicamente
+    updateTitle(userAuth.userId); // Aggiorna il titolo dinamicamente
+    
+    // Aggiungere una barra di ricerca dinamica
+    const searchContainer = document.createElement("div");
+    searchContainer.innerHTML = `
+        <input type="text" id="searchBar" placeholder="Inserisci ID utente">
+        <button onclick="searchUser()">Cerca</button>
+    `;
+    document.body.insertBefore(searchContainer, document.body.firstChild);
 });

@@ -3,7 +3,7 @@
         "name": "Carlo Alberto Lisa",
         "images": [
             {
-                "src": "download1.jpg",
+                "src": "asset/carlo/download.webp",
                 "description": "Questa è la descrizione dell'immagine 1."
             },
             {

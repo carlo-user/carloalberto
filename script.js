@@ -33,7 +33,7 @@ function updateTitle() {
 
     if (user) {
         const titleElement = document.querySelector("h1");
-        titleElement.innerText = DICHIARAZIONE DELLA PRIVACY ${user.name};
+       titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
     } else {
         alert("Utente non trovato. Verifica l'URL.");
     }

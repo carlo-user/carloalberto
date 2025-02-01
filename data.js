@@ -4,7 +4,6 @@
         "images": [
             {
                 "src": "asset/carlo/download.jpg",
-                "description": "Questa è la descrizione dell'immagine 1 per Carlo."
             },
         ]
     },
@@ -13,7 +12,6 @@
         "images": [
             {
                 "src": "asset/maria/download.jpg",
-                "description": "Descrizione dell'immagine 1 per Maria."
             },
         ]
     }

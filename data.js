@@ -4,7 +4,7 @@
         "images": [
             {
                 "src": "asset/carlo/download.jpg",
-                "description": "Questa è la descrizione dell'immagine 1."
+                "description": "Questa è la descrizione dell'immagine 1 per Carlo."
             },
         ]
     },

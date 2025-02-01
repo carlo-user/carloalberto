@@ -23,7 +23,7 @@ const userData = {
         "name": "Maria Rossi",
         "images": [
             {
-                "src": "image1.jpg",
+                "src": "asset/maria/download.jpg",
                 "description": "Descrizione dell'immagine 1 per Maria."
             },
             {

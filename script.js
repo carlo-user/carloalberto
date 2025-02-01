@@ -1,11 +1,15 @@
-// Oggetto contenente i dati utente
+// Oggetto contenente i dati utente (può essere spostato su un server o file separato JSON)
 const userData = {
     "user1": {
         "name": "Carlo Alberto Lisa",
         "images": [
             {
-                "src": "asset/carlo/download.jpg",
-                "description": "Questa è la descrizione dell'immagine 1 per Carlo."
+                "src": "download1.jpg",
+                "description": "Questa è la descrizione dell'immagine 1."
+            },
+            {
+                "src": "download2.jpg",
+                "description": "Questa è la descrizione dell'immagine 2."
             }
         ]
     },
@@ -13,8 +17,12 @@ const userData = {
         "name": "Maria Rossi",
         "images": [
             {
-                "src": "asset/maria/download.jpg",
+                "src": "image1.jpg",
                 "description": "Descrizione dell'immagine 1 per Maria."
+            },
+            {
+                "src": "image2.jpg",
+                "description": "Descrizione dell'immagine 2 per Maria."
             }
         ]
     }
@@ -29,14 +37,11 @@ function getQueryParam(param) {
 // Funzione per aggiornare il titolo dinamicamente
 function updateTitle() {
     const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
-    console.log("User ID:", userId);  // Debugging
     const user = userData[userId];
 
     if (user) {
         const titleElement = document.querySelector("h1");
-        if (titleElement) {
-            titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
-        }
+        titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
     } else {
         alert("Utente non trovato. Verifica l'URL.");
     }
@@ -45,7 +50,6 @@ function updateTitle() {
 // Funzione per mostrare le immagini dell'utente
 function showImages() {
     const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
-    console.log("Mostrando immagini per:", userId);  // Debugging
     const user = userData[userId];
 
     if (user) {
@@ -77,7 +81,7 @@ function showImages() {
     }
 }
 
-// Assicurati che il codice venga eseguito dopo il caricamento del DOM
+// Caricamento automatico dei dati all'apertura della pagina
 document.addEventListener("DOMContentLoaded", () => {
-    updateTitle();
+    updateTitle(); // Aggiorna il titolo dinamicamente
 });

@@ -1,10 +1,4 @@
-// Simuliamo un sistema di autenticazione
-const userAuth = {
-    isAuthenticated: true, // Qui andrebbe un vero controllo di login
-    userId: "user1" // Dovresti ottenere l'ID dell'utente autenticato
-};
-
-// Simuliamo un database di utenti
+// Oggetto contenente i dati utente (può essere spostato su un server o file separato JSON)
 const userData = {
     "user1": {
         "name": "Carlo Alberto Lisa",
@@ -23,7 +17,7 @@ const userData = {
         "name": "Maria Rossi",
         "images": [
             {
-                "src": "image1.jpg",
+                "src": "asset/maria/download.jpg",
                 "description": "Descrizione dell'immagine 1 per Maria."
             },
             {
@@ -34,30 +28,28 @@ const userData = {
     }
 };
 
-// Funzione per aggiornare il titolo dinamicamente
-function updateTitle(userId) {
-    if (!userAuth.isAuthenticated) {
-        alert("Accesso negato. Effettua il login.");
-        return;
-    }
+// Funzione per recuperare i parametri dall'URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
+// Funzione per aggiornare il titolo dinamicamente
+function updateTitle() {
+    const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
     const user = userData[userId];
 
     if (user) {
         const titleElement = document.querySelector("h1");
-        titleElement.innerText = `DICHIARAZIONE DELLA PRIVACY ${user.name}`;
+        titleElement.innerText = DICHIARAZIONE DELLA PRIVACY ${user.name};
     } else {
-        alert("Errore: utente non trovato.");
+        alert("Utente non trovato. Verifica l'URL.");
     }
 }
 
-// Funzione per mostrare le immagini dell'utente cercato
-function showImages(userId) {
-    if (!userAuth.isAuthenticated) {
-        alert("Accesso negato. Effettua il login.");
-        return;
-    }
-    
+// Funzione per mostrare le immagini dell'utente
+function showImages() {
+    const userId = getQueryParam('id'); // Recupera l'ID dell'utente dall'URL
     const user = userData[userId];
 
     if (user) {
@@ -89,26 +81,7 @@ function showImages(userId) {
     }
 }
 
-// Funzione per cercare un utente
-function searchUser() {
-    const searchInput = document.getElementById("searchBar").value.trim();
-    if (userData[searchInput]) {
-        updateTitle(searchInput);
-        showImages(searchInput);
-    } else {
-        alert("Utente non trovato.");
-    }
-}
-
 // Caricamento automatico dei dati all'apertura della pagina
 document.addEventListener("DOMContentLoaded", () => {
-    updateTitle(userAuth.userId); // Aggiorna il titolo dinamicamente
-    
-    // Aggiungere una barra di ricerca dinamica
-    const searchContainer = document.createElement("div");
-    searchContainer.innerHTML = `
-        <input type="text" id="searchBar" placeholder="Inserisci ID utente">
-        <button onclick="searchUser()">Cerca</button>
-    `;
-    document.body.insertBefore(searchContainer, document.body.firstChild);
+    updateTitle(); // Aggiorna il titolo dinamicamente
 });
